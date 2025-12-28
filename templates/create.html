@@ -589,6 +589,7 @@
             exercises: workoutData.map(ex => ({
                 id: ex.groupId,
                 title: ex.title,
+                presetId: ex.selectedPresetId,  
                 sets: ex.sets.map(s => ({
                     reps: s.reps,
                     weight: s.weight,
@@ -791,7 +792,7 @@ You must output a JSON object with the following structure:
                         variants: meta.variants,
                         presets: meta.presets,
                         selectedVariantId: meta.variants?.[0]?.id || groupId, // Default to first variant
-                        selectedPresetId: -1, // Default to Custom
+                        selectedPresetId: parseInt(ex.presetId),
                         sets: finalSets
                     });
                 }
